@@ -23,7 +23,7 @@ migrate: setup
 
 ## Run project
 run: migrate
-	$(PYTHON) manage.py runserver 8003
+	$(PYTHON) manage.py runserver 8000
 
 
 makemigrations:
