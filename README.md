@@ -2,7 +2,8 @@
 
 ## Configuration
 
-* Project uses `.env` file or environment variables for configuration. There is an example: `book_catalog/bool_catalog/.env.example`.
+* Project uses `.env` file or environment variables for configuration. There is an
+  example: `book_catalog/bool_catalog/.env.example`.
 
 ## Requirements
 
@@ -26,7 +27,6 @@ For dependencies management [pipenv](https://pipenv.pypa.io/) is being used.
 
 `source .venv/bin/activate`
 
-
 #### Run API
 
 `make run` - runs django application.
@@ -47,3 +47,7 @@ For dependencies management [pipenv](https://pipenv.pypa.io/) is being used.
 
 `http://127.0.0.1:8000/swagger/` - open swagger documentation.
 
+* registration `POST http://127.0.0.1:8000/auth/users/`
+* get token: `POST http://127.0.0.1:8000/auth/token/login`
+* using token: Add to headers field "Authorization" `Token <your_token>`
+* email activation: `POST http://127.0.0.1:8000/auth/users/activation/`
