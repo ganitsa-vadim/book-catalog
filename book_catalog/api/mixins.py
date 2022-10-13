@@ -26,7 +26,7 @@ class BookSerializerMixin:
         return book.author.get_full_name()
 
     def check_is_favorite(self, book: Book):
-        user: User = self.context.get('user')
+        user: User = self.context.get('request').user
         users_added_to_favorite = book.added_to_favorite.all()
         print(user)
         if user in users_added_to_favorite:
