@@ -1,6 +1,6 @@
+from api import models
 from django.contrib import admin
 
-from api import models
 
 admin.site.register(models.Book)
 admin.site.register(models.Review)

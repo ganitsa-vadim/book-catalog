@@ -1,7 +1,11 @@
-from django.core.validators import MinValueValidator, MaxValueValidator
-from django.db import models
 from django.conf import settings
-from django.db.models import Avg, CheckConstraint, UniqueConstraint, Q
+from django.core.validators import MaxValueValidator
+from django.core.validators import MinValueValidator
+from django.db import models
+from django.db.models import Avg
+from django.db.models import CheckConstraint
+from django.db.models import Q
+from django.db.models import UniqueConstraint
 
 
 class Genre(models.Model):
@@ -43,8 +47,16 @@ class Book(models.Model):
 
 class Review(models.Model):
     text = models.TextField(null=False)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='reviews', on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, related_name='reviews', on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name='reviews',
+        on_delete=models.CASCADE,
+    )
+    book = models.ForeignKey(
+        Book,
+        related_name='reviews',
+        on_delete=models.CASCADE,
+    )
 
     @property
     def average_rating(self):

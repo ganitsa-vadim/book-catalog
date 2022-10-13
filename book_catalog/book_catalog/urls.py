@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+
 from .yasg import urlpatterns as documentation_urlpatterns
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

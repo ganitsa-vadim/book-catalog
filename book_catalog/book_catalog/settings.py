@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-26$)ecjp$kmzj+6n%=%$)s4mncpp#2sun8oi6kgymq55(i_@5n'
+SECRET_KEY = 'django-insecure-26$)ecjp$kmzj+6n%=%$)s4mncpp#2sun8oi6kgymq55(i_@5n'  # noqa: S105
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -132,7 +133,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_BACKEND': (
         'django_filters.rest_framework.DjangoFilterBackend',
-    )
+    ),
 }
 
 AUTH_USER_MODEL = 'users.User'
@@ -150,12 +151,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Basic': {
-            'type': 'basic'
+            'type': 'basic',
         },
         'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',
-            'in': 'header'
-        }
-    }
+            'in': 'header',
+        },
+    },
 }

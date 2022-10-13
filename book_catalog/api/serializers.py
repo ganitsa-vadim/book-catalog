@@ -1,7 +1,7 @@
-from rest_framework import serializers
-
 from api.mixins import BookSerializerMixin
-from api.models import Book, Review
+from api.models import Book
+from api.models import Review
+from rest_framework import serializers
 
 
 class BookSerializer(serializers.ModelSerializer, BookSerializerMixin):
