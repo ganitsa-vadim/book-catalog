@@ -31,5 +31,8 @@ def book_detail(
 ):
     if request.method == 'GET':
         book = Book.objects.get(pk=book_id)
-        serializer = BookDetailSerializer(book)
+        serializer = BookDetailSerializer(
+            instance=book,
+            context={"user": request.user}
+        )
         return JsonResponse(serializer.data, safe=False)
