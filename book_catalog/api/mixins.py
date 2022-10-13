@@ -1,11 +1,24 @@
-from api.models import Book
+from rest_framework import serializers
+
+from api.models import Book, Genre
+
+
+class GenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Genre
+        fields = ['title']
 
 
 class BookSerializerMixin:
 
     @staticmethod
-    def get_genre_title(book: Book):
-        return book.genre.title
+    def get_genres(book: Book):
+        genres = book.genres.all()
+        serializer = GenreSerializer(
+            instance=genres,
+            many=True,
+        )
+        return serializer.data
 
     @staticmethod
     def get_author_name(book: Book):

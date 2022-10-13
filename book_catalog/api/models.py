@@ -30,8 +30,9 @@ class Book(models.Model):
     title = models.CharField(max_length=150, null=False)
     description = models.TextField(null=True)
     published_date = models.DateField(null=False)
-    genre = models.ForeignKey(Genre, related_name='books', on_delete=models.CASCADE)
+    # genre = models.ForeignKey(Genre, related_name='books', on_delete=models.CASCADE)
     author = models.ForeignKey(Author, related_name='books', on_delete=models.CASCADE)
+    genres = models.ManyToManyField(Genre, related_name='books')
 
     @property
     def average_rating(self):
